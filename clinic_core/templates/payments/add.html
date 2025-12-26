@@ -1,0 +1,22 @@
+<h2>Add Payment</h2>
+
+<form method="post">
+  {% csrf_token %}
+
+  <select name="visit">
+    {% for v in visits %}
+      <option value="{{ v.id }}">Visit {{ v.id }} - {{ v.patient.name }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <input name="billed" placeholder="Billed Amount"><br><br>
+  <input name="paid" placeholder="Paid Amount"><br><br>
+
+  <select name="method">
+    <option value="cash">Cash</option>
+    <option value="upi">UPI</option>
+    <option value="card">Card</option>
+  </select><br><br>
+
+  <button type="submit">Save Payment</button>
+</form>

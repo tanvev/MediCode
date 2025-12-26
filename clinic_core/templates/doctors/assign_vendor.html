@@ -1,0 +1,15 @@
+<h2>Assign Vendor</h2>
+
+<form method="post">
+  {% csrf_token %}
+
+  <select name="vendor">
+    {% for v in vendors %}
+      <option value="{{ v.id }}">{{ v.name }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <input name="purpose" placeholder="Purpose"><br><br>
+
+  <button type="submit">Assign</button>
+</form>

@@ -1,0 +1,30 @@
+<h2 class="text-xl font-bold mb-4">Doctor Payouts</h2>
+
+<form method="post" class="mb-6">
+  {% csrf_token %}
+
+  <select name="doctor">
+    {% for d in doctors %}
+      <option value="{{ d.id }}">Dr. {{ d.user.username }}</option>
+    {% endfor %}
+  </select>
+
+  <input type="month" name="month" required>
+  <input name="amount" placeholder="Amount" required>
+
+  <button>Add Payout</button>
+</form>
+
+<hr>
+
+<h3 class="font-bold">Payout History</h3>
+
+<ul>
+{% for p in payouts %}
+  <li>
+    {{ p.month }} – Dr. {{ p.doctor.user.username }} –
+    ₹{{ p.amount }} –
+    {% if p.is_paid %}Paid{% else %}Pending{% endif %}
+  </li>
+{% endfor %}
+</ul>

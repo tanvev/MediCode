@@ -1,0 +1,18 @@
+<h2>Book Appointment</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <select name="patient">
+    {% for p in patients %}
+      <option value="{{ p.id }}">{{ p.name }} ({{ p.patient_id }})</option>
+    {% endfor %}
+  </select><br><br>
+
+  <input type="datetime-local" name="appointment_time"><br><br>
+
+  <label>
+    <input type="checkbox" name="is_walk_in"> Walk-in
+  </label><br><br>
+
+  <button type="submit">Book</button>
+</form>

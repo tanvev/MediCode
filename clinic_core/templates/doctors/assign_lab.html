@@ -1,0 +1,15 @@
+<h2>Assign Lab Work</h2>
+
+<form method="post">
+  {% csrf_token %}
+
+  <select name="lab">
+    {% for lab in labs %}
+      <option value="{{ lab.id }}">{{ lab.name }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <input name="work" placeholder="Work description"><br><br>
+
+  <button type="submit">Assign</button>
+</form>

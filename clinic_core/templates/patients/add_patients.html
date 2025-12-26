@@ -1,0 +1,11 @@
+<h2>Add Patient</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <input name="patient_id" placeholder="Patient ID (optional)"><br><br>
+  <input name="name" placeholder="Name" required><br><br>
+  <input name="phone" placeholder="Phone" required><br><br>
+  <textarea name="medical_alerts" placeholder="Medical Alerts"></textarea><br><br>
+  <input name="referred_by" placeholder="Referred By"><br><br>
+  <button type="submit">Save Patient</button>
+</form>

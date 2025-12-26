@@ -1,0 +1,13 @@
+<h2>My Visits</h2>
+
+<ul>
+  {% for v in visits %}
+    <li>
+      {{ v.patient.name }} |
+      {{ v.visit_start }} |
+      <a href="{% url 'edit_visit' v.id %}">Open</a>
+    </li>
+  {% empty %}
+    <li>No visits yet</li>
+  {% endfor %}
+</ul>

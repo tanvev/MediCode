@@ -1,0 +1,27 @@
+<h2 class="text-xl font-bold mb-4">Clinic Expenses</h2>
+
+<form method="post" class="mb-6">
+  {% csrf_token %}
+
+  <select name="category">
+    <option value="staff">Staff</option>
+    <option value="rent">Rent</option>
+    <option value="lab">Lab</option>
+    <option value="utilities">Utilities</option>
+    <option value="other">Other</option>
+  </select>
+
+  <input name="amount" placeholder="Amount" required>
+  <input type="date" name="date" required>
+  <input name="description" placeholder="Description">
+
+  <button>Add Expense</button>
+</form>
+
+<ul>
+{% for e in expenses %}
+  <li>
+    {{ e.expense_date }} – {{ e.category }} – ₹{{ e.amount }}
+  </li>
+{% endfor %}
+</ul>

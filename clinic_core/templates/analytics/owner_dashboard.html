@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owner Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="p-6 bg-gray-100">
+
+<!-- Demo Button -->
+<a href="/analytics/load-demo/"
+   class="inline-block bg-purple-600 text-white px-4 py-2 rounded mb-4">
+   Load Demo Data
+</a>
+
+<h1 class="text-2xl font-bold mb-4">Clinic Intelligence Dashboard</h1>
+
+<!-- KPIs -->
+<div class="grid grid-cols-4 gap-4 mb-6">
+
+  <div class="bg-white p-4 rounded shadow">
+    <h3>Total Earnings</h3>
+    <p id="kpi-earnings">₹0</p>
+  </div>
+
+  <div class="bg-white p-4 rounded shadow">
+    <h3>New Patients</h3>
+    <p id="kpi-new">0</p>
+  </div>
+
+  <div class="bg-white p-4 rounded shadow">
+    <h3>Repeat Patients</h3>
+    <p id="kpi-repeat">0</p>
+  </div>
+
+  <div class="bg-white p-4 rounded shadow">
+    <h3>Growth %</h3>
+    <p id="kpi-growth">N/A</p>
+  </div>
+
+  <div class="bg-green-100 p-4 rounded shadow col-span-2">
+    <h3>Net Profit</h3>
+    <p id="kpi-profit">₹0</p>
+  </div>
+
+</div>
+
+<!-- Charts -->
+<canvas id="patientsPerDay"></canvas>
+<canvas id="newRepeat"></canvas>
+<canvas id="busiestHours"></canvas>
+<canvas id="doctorRevenue"></canvas>
+<canvas id="paymentMethods"></canvas>
+<canvas id="doctorMargin"></canvas>
+
+<!-- 🔥 PASS CLINIC ID FROM BACKEND -->
+<script>
+  const CLINIC_ID =2;
+</script>
+
+<script src="{% static 'js/owner_dashboard.js' %}"></script>
+
+</body>
+</html>
